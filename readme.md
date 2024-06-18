@@ -11,4 +11,4 @@ Its features allow viewing orders from multiple dimensions: from order status, p
 
 ###  SCHEMA
 
- <img src="code_snapshot\ecommerce.drawio.png" width="600" /> 
+ <img src="code_snapshot\ecommerce.drawio.png" width="700" /> 

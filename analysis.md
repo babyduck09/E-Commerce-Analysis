@@ -642,19 +642,25 @@ GROUP BY state, The_year;
 ```
  <img src="code_snapshot\CRR1.png" width="170" />  
 
+
 #### Key Insights derived from from Olist Ecommerce Analysis
+
 **Overall Sales Performance**
  The total sales amount are 154M, indicating substantial revenue generation for Olist e-commerce platform.
 Profit Margin: The profit margin has seen increases over the years, with a total of 0.10M. The profit margins show growth from 2016 to 2018.
 Average Order Value (AVO): The average order value is $159.8, indicating a relatively high transaction size per order.
 Net Promoter Score (NPS): A high NPS score of 65.56% suggests that customers are likely to recommend Olist to others, demonstrating strong customer satisfaction.
 Review Scores: The average review score is 4.16, with the majority (59.17%) of orders receiving the highest rating of 5 stars, further indicating high customer satisfaction.
+
 **Seasonal Trends**
 Order Trends by Season and Year: The data shows that summer consistently has the highest number of orders (19K in 2016 and 21K in 2017), while winter sees the lowest (8K in 2017 and 8K in 2018). This seasonal variation suggests strategic planning for inventory and marketing efforts during peak seasons.
+
 **Product Insights**
 Top Products by Profit Margin: Categories like bed, bath & table, health & beauty, sports & leisure, and computers & accessories are top performers in terms of profit margin, with each category contributing between 7K to 13K units.
+
 **Payment Methods**
 Payment Types by State: Credit card payments dominate across most states, with notable usage in SP (São Paulo), RJ (Rio de Janeiro), and RS (Rio Grande do Sul). Other payment methods like boleto and vouchers are also used, but to a lesser extent.
+
 **Geographic Distribution**
 Customer Distribution: The map shows a high concentration of customers in urban areas, particularly in the southeastern region of Brazil, indicating regional hotspots for e-commerce activity.
 Seller Distribution: Similar to customer distribution, sellers are densely populated in southeastern states, aligning with the areas of high customer concentration.

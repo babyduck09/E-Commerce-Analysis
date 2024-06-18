@@ -647,6 +647,7 @@ GROUP BY state, The_year;
 
 
 **Overall Sales Performance**
+
  *The total sales* amount are 154M, indicating substantial revenue generation for Olist e-commerce platform.
 
 *Profit Margin*: The profit margin has seen increases over the years, with a total of 0.10M. The profit margins show growth from 2016 to 2018.

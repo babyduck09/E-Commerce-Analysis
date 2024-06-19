@@ -197,6 +197,7 @@ FROM AOV_CPO;
 <img src="code_snapshot\AVO.png" width="250" />
 >
 
+- The profit per order is very low at $0.03. This suggests that the profit margin is extremely tight, indicating potential challenges in generating substantial profit from each order.
 ```sql
 -- the average order value (AOV)  by product category
 SELECT
@@ -237,7 +238,8 @@ ORDER BY profit_per_pc DESC;
 ```
 <img alt="hangxd" src="code_snapshot\AVO_product.png" width="350" />
 
-
+- Categories like fixed telephony, signaling and security, and office furniture show higher profit margins per product. These categories may warrant additional marketing or inventory focus to capitalize on profitability.
+- Categories with negative profit per product (small appliances and home appliances 2) require a closer look at cost management strategies or pricing adjustments to improve profitability.
 ```sql
 -- the average order value (AOV) by payment method
 SELECT 
@@ -281,6 +283,7 @@ FROM (
 ```
 <img src="code_snapshot\active_seller.png" width="150" />
 
+- The number indicates that 2225 (approximately 71.86%)  registered sellers are actively selling on the platform.
 
 ```sql
 -- active sellers by months and years
@@ -353,7 +356,7 @@ ORDER BY review_score DESC;
 ```
 <img src="code_snapshot\seller_rating_sale.png" width="250" />
 
-     
+- Products or services with review scores of 5 and 4 collectively contribute to approximately 76.52% of total sales. This indicates a strong correlation between high customer satisfaction and sales volume.     
 #### 7. How many customers have made repeat purchases on Olist, and what percentage of total sales do they account for?
 
 ```sql
@@ -417,7 +420,7 @@ FROM  total_sales;
 ```
 <img src="code_snapshot\repeat_cus_sales_p.png" width="170" />
 
-
+- A repeat customer sale percentage of 5.61% is relatively low. This metric indicates that only 5.61% of company sales come from repeat customers
 
 #### 8. What is the average customer rating for products sold on Olist, and how does this impact sales performance, calculate NPS score?
 ```sql
@@ -462,6 +465,7 @@ GROUP BY S.product_category_name;
 <img src="code_snapshot\avg_score_cus.png" width="350" /> 
 
 
+What is Net promoter score?
 Net promoter score (NPS) is a market research metric that is based on a single survey question asking respondents to rate the likelihood that they would recommend a company, product, or a service to a friend or colleague.
 To calculate your Net Promoter Score, subtract the percentage of Detractors from the percentage of Promoters:  NPS = % promoters - % detractors
 ```sql
@@ -481,7 +485,8 @@ FROM
 FROM order_reviews) AS rs)AS nps; 
 ``` 
  <img src="code_snapshot\nps.png" width="250" />  
-	
+
+- An NPS of 65 is in the upper end of the "good" range, bordering on "excellent." This suggests that the majority of customers are highly satisfied with the company and are likely to recommend it to others.	
     
 #### 9. What is the average order cancellation rate on Olist, and how does this impact seller performance?
 ```sql
@@ -551,8 +556,10 @@ JOIN
  GROUP BY 
     pc.product_category_name;
 ```
- <img src="code_snapshot\payment_product.png" width="370" />  
+ <img src="code_snapshot\payment_method_product.png" width="370" />  
 
+- Credit Card: Dominates as the primary payment method, accounting for around 65-78% of transactions in all categories.
+- Boleto: The second most popular, representing approximately 16-26% of transactions, with the highest percentage in Computers & Accessories.
 ```sql
 -- payment method by geographic region 
 SELECT
@@ -585,7 +592,10 @@ JOIN
  WHERE OO.order_id IN (SELECT * FROM valid_orders)
  GROUP BY cm.geolocation_city;
 ```
- <img src="code_snapshot\payment_geo.png" width="370" />  
+ <img src="code_snapshot\payment_method_geolocation.png" width="370" />  
+
+ - Across all cities, credit cards are the most popular payment method.
+ - The ratio of boleto payments to credit card payments is relatively consistent across the cities, with boletos typically accounting for about 20-25% of the credit card transactions.
 
 #### 11.  Calculate customer retention rate according to geolocations. 
  Customer Retention Rate (CRR) is the percentage of customers a business retains over a set time frame. Calculated by measuring retained customers against the initial customer count, this metric serves as an essential indicator of customer satisfaction and loyalty.
@@ -640,8 +650,9 @@ JOIN retain_cus R
 	R.The_year =  T.The_year
 GROUP BY state, The_year;
 ```
- <img src="code_snapshot\CRR1.png" width="170" />  
+ <img src="code_snapshot\crr_rate.png" width="170" />  
 
+- The highest CRR recorded is in RO (Rondonia) in 2017 with a CRR of 5.22, and RR (Roraima) in 2018 with a CRR of 4.55.
 
 #### Key Insights derived from from Olist Ecommerce Analysis
 
@@ -650,9 +661,8 @@ GROUP BY state, The_year;
 
  *The total sales* amount are 154M, indicating substantial revenue generation for Olist e-commerce platform.
 
-*Profit Margin*: The profit margin has seen increases over the years, with a total of 0.10M. The profit margins show growth from 2016 to 2018.
 
-*Average Order Value (AVO)*: The average order value is $159.8, indicating a relatively high transaction size per order.
+*Average Order Value (AVO)*: The Cost per Order (CPO) almost equals the Average Value Order (AVO), which indicates that costs are nearly equal to the revenue generated per order. This tight margin underscores the importance of efficient cost management to improve profitability.
 
 *Net Promoter Score (NPS)*: A high NPS score of 65.56% suggests that customers are likely to recommend Olist to others, demonstrating strong customer satisfaction.
 
@@ -666,21 +676,28 @@ GROUP BY state, The_year;
 
 **Product Insights**
 
-*Top Products by Profit Margin:* Categories like bed, bath & table, health & beauty, sports & leisure, and computers & accessories are top performers in terms of profit margin, with each category contributing between 7K to 13K units.
+*Top Products by Total Orders:* Categories like bed, bath & table, health & beauty, sports & leisure, and computers & accessories are top performers in terms of total order, with each category contributing between 9K to 10K units.
 
 
 **Payment Methods**
 
-*Payment Types by State*: Credit card payments dominate across most states, with notable usage in SP (São Paulo), RJ (Rio de Janeiro), and RS (Rio Grande do Sul). Other payment methods like boleto and vouchers are also used, but to a lesser extent.
+*Payment Types by State*: Credit card payments dominate across most states, with notable usage in SP (Sao Paulo), RJ (Rio de Janeiro), and RS (Rio Grande do Sul). Other payment methods like boleto and vouchers are also used, but to a lesser extent.
 
 
 **Geographic Distribution**
 
-*Customer Distribution*: The map shows a high concentration of customers in urban areas, particularly in the southeastern region of Brazil, indicating regional hotspots for e-commerce activity.
+*Customer Distribution*: There are  high concentration of customers in urban areas, particularly in the southeastern region of Brazil, indicating regional hotspots for e-commerce activity.
 
 *Seller Distribution*: Similar to customer distribution, sellers are densely populated in southeastern states, aligning with the areas of high customer concentration.
 
 
 **Seller Activity**
 
-*Average Active Sellers by Month*: There is a noticeable peak in the number of active sellers in May (508.67), suggesting a seasonal increase in seller activity, potentially tied to sales events or promotional periods.
+*Average Active Sellers by Month*: There is a noticeable peak in the number of active sellers in Jan-2017 (122), suggesting a seasonal increase in seller activity, potentially tied to sales events or promotional periods.
+
+
+**Customer Retention Rate (CRR) Overview:**
+
+There's a noticeable peak in the CRR for the state of RR in 2018 compared to the 2017 figures of other states. This could indicate a specific improvement or change in business practices in RR that year.
+
+Other states have data from 2017, suggesting that the company's customer retention efforts were more stable or uniform across these states during that year.
